@@ -1,0 +1,284 @@
+/*
+IFCE - CAMPUS CEDRO
+Trabalho N2 - SO - 2020
+Docentes
+    - Raimundo Gonçalves de Sousa Júnior
+    - David Kaique
+    = Mateus Bezerra
+Discente
+    - Paulo Amora
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC|Open+Sans');
+
+input:focus {
+    outline: 0;
+}    
+
+body{
+    width: 100%;
+    height: 100vh;
+}
+
+div#options {
+    font-size: 12pt;
+}
+
+@media only screen and (max-width: 575px) {
+    div.inputs {
+        width: 100% !important;
+    }
+}
+
+div.inputs {
+    width: 110px;
+    margin: 0px 5px 10px 5px;
+}
+
+td, th, tr{
+    min-width: 30px;
+
+}
+
+span.processo-principal {
+    color: white;
+    padding: 8px; 
+    border-radius: 50%;
+}
+
+span.processo-coad {
+    color: white;
+    padding: 5px;
+    font-size: 8pt;
+    border-radius: 50%;
+}
+
+table#filas-processos {
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+table#filas-processos td{
+    height: 50px;
+    font-size: 10pt;
+}
+
+div#div-mem-table::-webkit-scrollbar-thumb {
+    background: #294456;
+}
+
+div#div-mem-table::-webkit-scrollbar-thumb:hover {
+    background: #1f3341;
+}
+
+div#div-mem-table, div#div-mem-virtual-table{
+    overflow-x: auto;
+    margin: 20px 0px;
+}
+
+table#memoria-real, table#memoria-real tr, table#memoria-real td, table#memoria-virtual td, table#memoria-virtual tr, table#memoria-virtual {
+    padding: 0px 20px;
+    font-size: 10pt;
+    font-weight: normal;
+    background-color: white;
+    border: 1px solid black;
+}
+
+table#memoria-virtual td, table#memoria-virtual tr, table#memoria-virtual{
+    padding: 7px 14px;
+}
+table#memoria-real th, table#memoria-virtual th {
+    font-size: 10pt;
+    text-align: center;
+    padding: 10px 40px;
+    border: 1px solid #294456;
+    background-color: #294456;
+    color: white;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#grafico{
+    background-color: azure;
+    height: 200px;
+
+}
+
+#gameplay {
+    background: #088da5;    
+    box-shadow: 3px 3px 3px rgba(0,0,0,.5);
+    color: white;
+    text-align: center;
+    font-size: 25pt;;
+    width: 90%;
+    height: 90%;
+    margin-top: 1%;
+}
+
+h1#titulo-execucao {
+    background-color: #294456;
+    padding: 5px;
+    color: white;
+    font-weight: normal !important;   
+}
+
+h1#titulo-principal {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20pt;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+h1#titulo-execucao{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15pt;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+#addButton{
+    background-color: #005e00;
+    text-align: center;
+    height: 60%;
+    margin-bottom: 10px;   
+}
+
+#addButton:hover{
+    background-color: green;
+}
+
+input.button-process {
+    display: block;
+    position: relative;
+    background-color: #294456;
+    color: white;
+    border: 0px;
+    padding: 10px 85% 10px 10px;
+}
+
+.ajustante{
+    margin-top: 18px; 
+}
+
+input.ajuste{
+    font-size: 10pt;
+} 
+
+.form-row{
+    position: relative;
+}
+
+.removeButton{
+    background-color: #800000 !important;
+    text-align: center !important;
+    font-size: 1.em !important;
+    height: 47%  !important;
+    position: absolute;
+    bottom: 0%;
+}
+
+.removeButton:hover {
+    background-color: red !important;
+}
+
+#games{
+    text-align: left;
+    font-size: 50%;
+    padding: 10px;
+}
+
+.submitprocess{
+    /*border: 1px solid red;*/
+    background-color: #c6e2ff;
+    margin: 10px;
+    border-radius: 10px;
+    font-weight: bold;
+    color: black;   
+}
+
+.flex-container{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+table#tabela td tr th{
+    min-width: 30px;
+}
+
+div.algoritmos h3{
+    font-size: 12pt;
+    font-weight: bold;
+}
+
+div.algoritmos {
+    margin-top: 3px;
+    margin-bottom: 10px;
+    float: right;
+}
+@media only screen and (min-width: 1100px) {
+    div#algorit-process {
+        margin-left: 12%;
+    }
+}
+
+select.input-algorit{
+    width: 200px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+@media only screen and (max-width: 575px) {
+    div.inputs, select.input-algorit {
+        width: 100% !important;
+    }
+}
+
+div.inputs {
+    width: 130px;
+    margin: 0px 5px 10px 5px;
+}
+
+
+.myRange{
+    -webkit-appearance: none; 
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 40%; 
+    height: 25px;
+    background: #d3d3d3; 
+    outline: none; 
+    opacity: 0.7; 
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    float: right;
+    margin-right: 10px;
+    margin-top: 7px;
+    
+}
+
+.myRange::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #088da5;
+    cursor: pointer;
+  }
+  
+  .myRange::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #088da5;
+    cursor: pointer;
+  }

@@ -1,0 +1,167 @@
+<!--
+IFCE - CAMPUS CEDRO
+Trabalho N2 - SO - 2020
+Docentes
+    - Raimundo Gonçalves de Sousa Júnior
+    - David Kaique
+    = Mateus Bezerra
+Discente
+    - Paulo Amora
+-->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="script.js"></script>
+    <script src="memories.js"></script>
+    <script src="NormalQueue.js"></script>
+    <script src="PrioQueue.js"></script>
+    <script src="simulations.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>IFCE - 2020 - Escalonamento de Processos</title>
+  </head>
+  <body style = "overflow-y: scroll;">
+    <div class = "main-container">
+      <div id="gameplay" >
+        <h1 id="titulo-principal">Escalonamento de processos</h1>
+        <div class="submitprocess">
+          <div id="games">
+            <div class="form-row" id="options">
+              <div class="form-group inputs">
+                <label for="inputEmail4">Quantum</label>
+                <input type="number" class="form-control" id="inputquantum" min="1" value="3">
+              </div>
+              <div class="form-group inputs">
+                <label for="inputPassword4">Sobrecarga</label>
+                <input type="number" class="form-control" id="inputsobrecarga" min="0" value="1">
+              </div>
+              <div class="form-group inputs">
+                <label for="inputPagesPerProcess4">Nº Páginas</label>
+                <input type="number" class="form-control" id="inputpagesperprocess" min="1" value="7">
+              </div>
+              <div class="form-group inputs">
+                <label for="inputIoTime4">Tempo de I/O</label>
+                <input type="number" class="form-control" id="inputiotime" min="0" value="5">
+              </div>
+              <div class="algoritmos" id="algorit-process">
+                <h3 class="col-12">Escalonamento de Processos</h3>
+                <select id="algorit-processos" class="input-algorit">
+                  <option value="FIFO" selected >FIFO</option>
+                  <option value="EDF">EDF</option>
+                  <option value="SJF">SJF</option>
+                  <option value="ROUND">Round Robin</option>
+                  <option value="PRIO">Prioridade (Simples)</option>
+                </select>
+              </div>
+
+              <div class="algoritmos">
+                <h3 class="col-12">Escalonamento de Páginas</h3>
+                <select id="algorit-pages" class="input-algorit">
+                  <option value="FIFO" selected>FIFO</option>
+                  <option value="MRU">MRU</option>
+                </select>
+              </div>
+              
+            </div>
+            <div class = "botoes">
+              <button type="button" id = "addButton" class="btn btn-primary" onClick = 'inserirProcesso()'>Inserir processo</button>
+              
+              <button id = "clearButton" class="btn btn-primary" style="float: right;font-weight: bold;" onClick = 'limparDados()' disabled>Clear</button>
+              <button type="button" id = "pauseButton" style="float: right; margin-right: 5px;" class = "btn btn-primary" onClick = 'pauseSimulation()' disabled>
+                <img src="pause-512.png" width="20px" height="20px" style="margin-top: -4px; margin-left: 2px;"/>  
+              </button> 
+              <button type="button" id = "playButton" style = "float: right;  margin-right: 5px;" class = "btn btn-primary" onCLick = 'startSimulation()'>
+                <img src="play-white.png" width="20px" height="20px" style="margin-top: -4px;margin-left: 4px;"/> 
+              </button>
+              
+              <input type="range" id = "velocidadeExecucao" class="myRange" min="0" max="1000" onChange = "rangeChange()" style="margin-left: 10px"/>
+              <spam style="float:right; margin-top: 7px ; font-size: 12pt;">Velocidade</spam>
+            </div>
+            <div class="container-fluid">
+              <div class="row">
+                  <div class="col-sm-3" style="padding: 0px;">
+                    <div id="process" class="form-row" >
+                      
+                    </div>
+                  </div>
+                  <div class = "col-sm-9">
+                    <h1 id="titulo-execucao" style="position: relative;">Execução</h1>
+                      <div id="grafico" style=" padding: 0px; overflow-x:scroll;">
+                        
+          
+                        <table id='tabela' width="78.4px" style="margin-left:10px; ">
+                          <tr id="nomes-tabela">
+                            <th>Processos</th>
+                          </tr>
+                        </table>
+
+                      </div>
+                        <div>
+                          <span id = "turnaround">Turnaround médio = ...</span>
+                        </div>
+                        
+                        <table id="filas-processos" style="margin-top: 10px;">
+                          <tr>
+                            <th style="width: 138px; font-size: 10pt; text-align: center;">Execução</th>                           
+                          </tr>
+                          <tr id="lista-exe">
+                            <td id="processo-executando" align="center">
+                              
+                            </td>
+                          </tr>
+                          <tr>
+                            <th style="max-width: 138px; font-size: 10pt; text-align: center;">I/O</th>
+                          </tr>
+                          <tr id="lista-io">
+                            <td align="center" id="processo-io">
+
+                            </td>                            
+                          </tr>
+                        </table>
+                    
+                  </div> 
+
+                  <div id="div-mem-virtual-table">
+                      <table id="memoria-virtual">
+                        <tr id="mem-v-linha1">
+                          <th id = "thGamer" style="width: 138px; height: 59px;">Memória Virtual</th>
+                        </tr>
+                        
+                        
+                        
+                      </table>
+                  </div>
+
+                  <div id="div-mem-table">
+                    <table id="memoria-real">
+                      <tr id="mem-linha1">
+                        <th rowspan="2">Memória Real</th>
+                      </tr>
+                      <tr id="result">
+                      
+                      </tr>
+                      <script>createTable();</script>
+                    </table>
+                  </div>
+              </div>
+                
+            </div>
+            
+            
+          </div>
+        </div>  
+      </div>
+    </div>
+  
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  </body>
+</html>
