@@ -1,4 +1,4 @@
-# sot120182
-Trabalho 1 de SO - 2018.2 (UFBA) - Simulador de escalonamento de processos (WEB)
+# iamjunioru
+Trabalho N2 de SO - 2020 (IFCE) - Simulador de escalonamento de processos (WEB)
 
-Para visualizar o trabalho, basta acessar o site: https://agmenus.github.io/sot120182/
+Para visualizar o trabalho, segue o link: https://iamjunioru.github.io/process-schendulerV2/
