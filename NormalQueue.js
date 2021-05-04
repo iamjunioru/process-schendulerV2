@@ -19,4 +19,5 @@ class NormalQueue{
     seek(){
         return this.arr[0]
     }
+    
 }
