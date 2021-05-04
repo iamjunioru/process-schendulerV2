@@ -19,7 +19,7 @@ e usei o <b>GitHub</b> para armazenar e hospedar um trabalho feito para a N2 da 
 - RR(Round Robin)<br>
 - Priority(modo simples)<br> 
 <br>
-UPDATE: agora simula o uso de <b>memória real + virtual</b><br>
+<b>+UPDATE:</b> agora simula o uso de <b>memória real + virtual</b><br>
 
 Para visualizar o trabalho, clique <a href="https://iamjunioru.github.io/process-schendulerV2/">aqui</a> ou segue o link abaixo:<br>
 https://iamjunioru.github.io/process-schendulerV2/ 
